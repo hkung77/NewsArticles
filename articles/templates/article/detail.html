@@ -60,15 +60,17 @@
 					<p class="visible-xs">
 						<button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas"><i class="glyphicon glyphicon-chevron-left"></i></button>
 					</p>
-					<h2>News Articles</h2>
-					<div class="row col-lg-8"> 
-						{% if article_id %}
-							<img class="thumbnail" src="{% static article_id.image_link %}" width="auto" height="auto">
-							<div class="embed-responsive embed-responsive-16by9">
-								<iframe charset="ANSII" class="embed-responsive-item" src="{% static article_id.text_link %}"></iframe>
-							</div>
-						{% endif %}
-					</div>
+					{% if article_id %}
+					<h2>{{article_id.Title}}</h2>
+					<p>By {{article_id.Author}}</p>
+						<div class="row col-lg-8"> 						
+								<img class="thumbnail" src="{% static article_id.image_link %}" width="auto" height="auto">
+								<div class="embed-responsive embed-responsive-16by9">
+									<iframe charset="ANSII" class="embed-responsive-item" src="{% static article_id.text_link %}"></iframe>
+								</div>
+						</div>
+					{% endif %}
+
 				</div>
 				<div class="row col-lg-8"> 
 					<h2>Related Articles</h2>
