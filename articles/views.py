@@ -42,9 +42,11 @@ def nhl(request):
 	
 def detail(request,ID="0"):
 	article_id = article.objects.get(id=ID)
+	article_list = article.objects.order_by('-Pub_date').filter(Category=article_id.Category)[:3]
 	
 	template = loader.get_template('article/detail.html')
 	context = RequestContext(request, {
 	'article_id':article_id,
+	'article_list':article_list,
 	})
 	return HttpResponse(template.render(context))

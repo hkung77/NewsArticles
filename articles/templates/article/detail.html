@@ -70,6 +70,18 @@
 						{% endif %}
 					</div>
 				</div>
+				<div class="row col-lg-8"> 
+					<h2>Related Articles</h2>
+					{% if article_list %}
+						{% for article in article_list %}
+							<div class="row col-md-4"> 
+								<a href="{% url 'detail' article.id %}">
+								<img class="thumbnail" src="{% static article.image_link %}/" width="75%" height="50%"/>
+								{{ article.Title }}</a>
+							</div>
+						{% endfor %}
+					{% endif %}
+				</div>				
 			</div>		
 		</div>
 		<div id="footer">
